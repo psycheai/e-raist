@@ -3,6 +3,7 @@ import Image from "next/image";
 import schoolLogo from "../../public/logo.png";
 import backgroundImg from "../../public/mar.jpg";
 
+
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-black">
