@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -24,4 +25,35 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+
+.box {
+  color: black;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.37);
+  border-radius: 50px;
+  padding: 20px;
+  max-width: 100%; /* Adjust the max-width as needed */
+  height: 250px;
+  transition: transform 0.3s;
+}
+
+.h1 {
+  font-family: 'Neucha', sans-serif;
+  font-size: 60px;
+  color: black;
+}
+
+.h2 {
+  font-family: 'Neucha', sans-serif;
+  font-size: 52px;
+  color: black;
+  
+}
+
+.h3 {
+  font-family: 'Neucha', sans-serif;
+  font-size: 28px;
+  color: black;
 }
