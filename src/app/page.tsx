@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from "next/image";
+import Link from 'next/link';
 import schoolLogo from "../../public/logo.png";
 import backgroundImg from "../../public/mar.jpg";
 import styles from './globals.css';
@@ -45,28 +46,36 @@ const HomePage = () => {
              </div>
            <div className="box2">
            <div className="image-container">
-            <img src="/img1.jpg" alt="Image 1" />
-            <img src="/img2.jpg" alt="Image 2" />
-            <img src="/img3.jpg" alt="Image 3" />
-            <img src="/img4.jpg" alt="Image 4" />
-            <img src="/img5.jpg" alt="Image 5" />
-            <img src="/img6.jpg" alt="Image 6" />
-            <img src="/img7.jpg" alt="Image 7" />
-            <img src="/img8.jpg" alt="Image 8" />
+            <img src="/img/img1.jpg" alt="Image 1" />
+            <img src="/img/img2.jpg" alt="Image 2" />
+            <img src="/img/img3.jpg" alt="Image 3" />
+            <img src="/img/img4.jpg" alt="Image 4" />
+            <img src="/img/img5.jpg" alt="Image 5" />
+            <img src="/img/img6.jpg" alt="Image 6" />
+            <img src="/img/img7.jpg" alt="Image 7" />
+            <img src="/img/img8.jpg" alt="Image 8" />
+            <img src="/img/img9.jpg" alt="Image 9" />
+            <img src="/img/img10.jpg" alt="Image 10"/>
+            <img src="/img/img11.jpg" alt="Image 11"/>
+            <img src="/img/img12.jpg" alt="Image 12"/>
+            <img src="/img/img13.jpg" alt="Image 13"/>
+            <img src="/img/img14.jpg" alt="Image 14" />
     {/* Add more image elements as needed */}
   </div>
 
 
            </div>
          <div className="box3">
-          <div className="explore-journey">
-           <span className="explore-text">Explore Our Journey</span>
+          
+            <Link href="/table-of-contents">
+              <div className="explore-link">Explore Our Journey</div>
+            </Link>
            <span className="arrow">&#10148;</span>
           </div>
          </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 

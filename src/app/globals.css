@@ -115,7 +115,7 @@ body {
 
 .image-container {
   display: flex;
-  animation: scrollImages 20s linear infinite; /* Adjust the animation duration as needed */
+  animation: scrollImages 30s linear infinite; /* Adjust the animation duration as needed */
 }
 
 @keyframes scrollImages {
