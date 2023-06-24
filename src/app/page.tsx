@@ -8,14 +8,13 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-black">
       <div className="relative">
-        <div className="absolute top-0 left-0 w-full h-full z-0">
+        <div className="image">
           <Image
             src={backgroundImg}
             alt="Background Image"
-            layout="fill"
+            layout='fill'           
             objectFit="cover"
-            className="filter brightness-100 "
-          />
+            />
         </div>
         <div className="relative z-10 flex flex-col items-center justify-center text-white mt-8">
         <div className={`box ${styles.contentSquare} ml-4`}>
@@ -23,8 +22,8 @@ const HomePage = () => {
               <Image
                 src={schoolLogo}
                 alt="School Logo"
-                width={150}
-                height={150}
+                width={130}
+                height={130}
               />
             </div>
             <div className="container-size">
@@ -41,10 +40,30 @@ const HomePage = () => {
                 Celebrating 50 Years of Excellence, Memories, and Success
                 </h3>
                
+               </div>
               </div>
-            </div>
-           
+             </div>
+           <div className="box2">
+           <div className="image-container">
+            <img src="/img1.jpg" alt="Image 1" />
+            <img src="/img2.jpg" alt="Image 2" />
+            <img src="/img3.jpg" alt="Image 3" />
+            <img src="/img4.jpg" alt="Image 4" />
+            <img src="/img5.jpg" alt="Image 5" />
+            <img src="/img6.jpg" alt="Image 6" />
+            <img src="/img7.jpg" alt="Image 7" />
+            <img src="/img8.jpg" alt="Image 8" />
+    {/* Add more image elements as needed */}
+  </div>
+
+
+           </div>
+         <div className="box3">
+          <div className="explore-journey">
+           <span className="explore-text">Explore Our Journey</span>
+           <span className="arrow">&#10148;</span>
           </div>
+         </div>
         </div>
       </div>
     </div>
