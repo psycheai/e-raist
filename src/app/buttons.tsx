@@ -9,7 +9,7 @@ const Buttons = () => {
           Table of contents
         </button>
       </Link>
-      <Link href="#event-details" passHref>
+      <Link href="#magazine" passHref>
         <button className="box3">
           Read Magazine
         </button>
