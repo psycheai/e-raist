@@ -6,7 +6,6 @@ import backgroundImg from "../../public/mar.jpg";
 import styles from "./globals.css"
 import Contents from './contents';
 import Buttons from './buttons';
-import Magazine from './magazine';
 
 
 
@@ -71,7 +70,7 @@ const HomePage = () => {
         </div>
       </div>
       <Contents /> {/* Add the Contents component */}
-      <Magazine /> {/* Add the Magazine component */}
+      
     </div>
   );
 };
