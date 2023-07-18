@@ -1,6 +1,6 @@
 {
   "name": "e-mag",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "e-magazine for school",
   "main": "dist/vue-book-effects.cjs.js",
   "module": "dist/vue-book-effects.es.js",
