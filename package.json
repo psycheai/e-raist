@@ -1,6 +1,6 @@
 {
   "name": "e-mag",
-  "version": "0.1",
+  "version": "1.0.0",
   "description": "e-magazine for school",
   "main": "dist/vue-book-effects.cjs.js",
   "module": "dist/vue-book-effects.es.js",
@@ -10,11 +10,13 @@
   },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --dest demo",
+    "build": "vue-cli-service build",
     "dist": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "rematrix": "^0.7.2"
+    "normalize-package-data": "^5.0.0",
+    "rematrix": "^0.7.2",
+    "vue-book-effects": "^0.4.4"
   },
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
