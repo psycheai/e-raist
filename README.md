@@ -1,34 +1,269 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Installation
 
-First, run the development server:
+Install as a module:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```
+npm i -S vue-book-effects
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+or
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+yarn add vue-book-effects
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Or include in html:
 
-## Learn More
+```html
+<script src="https://unpkg.com/vue-book-effects"></script>
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```html
+<template>
+  <vue-book-effects class="book-effects" :pages="['array', 'of', 'image', 'URLs']"></vue-book-effects>
+</template>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<style>
+.book-effects {
+  width: 90vw;
+  height: 90vh;
+}
+</style>
+```
 
-## Deploy on Vercel
+If installed as a module,
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```html
+<script>
+import VueBookEffects from 'vue-book-effects'
+export default {
+  components: { VueBookEffects }
+}
+</script>
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you would like to build from `.vue`,
+
+```javascript
+import VueBookEffects from 'vue-book-effects/sfc'
+```
+
+or
+
+```javascript
+import VueBookEffects from 'vue-book-effects/src/vue-book-effects'
+```
+
+## Props
+
+### `pages`
+
+Array of image URLs. Required.
+All images should have the same aspect ratio.
+
+If the first element is `null`, the next element is displayed alone (as the cover page).
+
+All other props are optional.
+
+### `pagesHiRes`
+
+Array of high resolution versions of image URLs.
+They are used when zoomed.
+
+### `flipDuration`
+
+Duration of page flipping animation in milliseconds.
+Defaults to 1000.
+
+### `zoomDuration`
+
+Duration of zoom in/out animation in milliseconds.
+Defaults to 500.
+
+### `zooms`
+
+Array of possible magnifications. 
+`null` is equivalent to `[1]` (no zoom).
+Defaults to `[1, 2, 4]`. _NOTE_ : Do **NOT** pass an empty array.
+
+### `ambient`
+
+Intensity of ambient light in 0 to 1.
+Smaller value gives more shades.
+Defaults to 0.4.
+
+### `gloss`
+
+Intensity of specular light in 0 to 1.
+Higher value gives more gloss.
+Defaults to 0.6.
+
+### `perspective`
+
+Z-axis distance in pixels between the screen and the viewer.
+Higher value gives less effect.
+Defaults to 2400.
+
+### `nPolygons`
+
+How many rectangles a single page is horizontally split into.
+Higher value gives higher quality rendering in exchange for performance.
+Defaults to 10.
+
+### `singlePage`
+
+Force single page mode regardless of viewport size.
+Defaults to false.
+
+### `forwardDirection`
+
+Reading direction.
+If your document is right-to-left, set this `"left"`.
+Default is `"right"`.
+
+### `centering`
+
+Enable centering of the cover pages.
+Default is `true`.
+
+### `startPage`
+
+Page number (>= 1) to open.
+Default is `null`.
+
+### `loadingImage`
+
+URL of an image that is displayed while page is loading.
+By default internal animated SVG is used.
+
+## Events
+
+### `flip-left-start`
+
+Fired when flip to left animation starts. Argument is page number before flip.
+
+### `flip-left-end`
+
+Fired when flip to left animation ends. Argument is page number after flip.
+
+### `flip-right-start`
+
+Fired when flip to right animation starts. Argument is page number before flip.
+
+### `flip-right-end`
+
+Fired when flip to right animation ends. Argument is page number after flip.
+
+### `zoom-start`
+
+Fired when zoom-in/out animation starts.
+Argument is magnification after zoom.
+
+### `zoom-end`
+
+Fired when zoom-in/out animation ends.
+Argument is magnification after zoom.
+
+## Slot props
+
+This component exposes some properties and methods as slot properties.
+Example usage:
+
+```html
+<vue-book-effects :pages="pages" v-slot="bookEffects">
+  <button @click="bookEffects.flipLeft">Previous Page</button>
+  <button @click="bookEffects.flipRight">Next Page</button>
+</vue-book-effects>
+```
+
+For more practical usage, refer to [`src/App.vue`](https://github.com/Sea-DH1/vue-book-effects/blob/main/src/App.vue) (the demo page source).
+
+These properties and methods can also be referred through `$refs` to the `vue-book-effects` component.
+
+### `canFlipLeft`
+
+True if it can flip to previous page. _NOTE_: Can return false if currently being animated.
+
+### `canFlipRight`
+
+True if it can flip to next page. _NOTE_: Can return false if currently being animated.
+
+### `canZoomIn`
+
+True if it can zoom in.
+
+### `canZoomOut`
+
+True if it can zoom out.
+
+### `page`
+
+Current page number (1 to `numPages`).
+
+### `numPages`
+
+Total number of pages.
+
+### `flipLeft()`
+
+Method to flip to previous page.
+
+### `flipRight()`
+
+Method to flip to next page.
+
+### `zoomIn()`
+
+Method to zoom in.
+
+### `zoomOut()`
+
+Method to zoom out.
+
+## CSS API
+
+You may need to specify the size of view port in your style sheet, directly to
+`<vue-book-effects>` element, or to `.viewport` sub-element of vue-book-effects.
+
+If the size is horizontally long and `singlePage` prop is `false` (default), it displays two pages spread, suitable for desktop browsers.
+If it's vertically long, it displays single pages, suitable for smartphones.
+
+There are some internal classes.
+
+### `.viewport`
+
+A `<div>` element that contains everything but `<slot>`.
+`<slot>` is placed above `.viewport`.
+
+### `.bounding-box`
+
+Approximate bounding box of the displayed images.
+Suitable to give `box-shadow`.
+
+## Browser support
+
+Supports modern browsers and IE 11.
+
+## Development
+
+To start development server with demo pages:
+
+```
+yarn
+yarn serve
+```
+
+To package for npm:
+
+```
+yarn dist
+```
+
+## License
+
+MIT
+
+Copyright © 2021-present Sea.
