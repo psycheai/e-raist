@@ -14,7 +14,9 @@
     "dist": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "rematrix": "^0.7.2"
+    "normalize-package-data": "^5.0.0",
+    "rematrix": "^0.7.2",
+    "vue-book-effects": "^0.4.4"
   },
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
