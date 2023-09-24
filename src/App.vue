@@ -67,7 +67,7 @@ export default {
     })
 
     setTimeout(() => {
-      this.pages = [null, 'images/1.png', 'images/2.jpg', 'images/3.jpg', 'images/4.jpg', 'images/5.jpg', 'images/6.jpg']
+      this.pages = [null, 'images/1.png', 'images/2.png', 'images/3.png', 'images/4.png', 'images/5.png', 'images/6.jpg']
       this.pagesHiRes = [null, 'images-large/1.png', 'images-large/2.jpg', 'images-large/3.jpg', 'images-large/4.jpg', 'images-large/5.jpg', 'images-large/6.jpg']
     }, 1)
 
